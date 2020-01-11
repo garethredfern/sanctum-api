@@ -13,6 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:airlock')->get('/user', function (Request $request) {
-    return $request->user();
+Route::post('/auth/login', 'API\Auth\LoginController');
+
+Route::middleware('auth:airlock')->group(function () {
+    Route::post('/auth/logout', 'API\Auth\LogoutController');
+    Route::get('/users/{user}', 'API\UserController@show');
 });
