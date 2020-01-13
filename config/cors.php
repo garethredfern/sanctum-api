@@ -20,7 +20,7 @@ return [
         'allow_credentials' => true,
 
         'allow_origins' => [
-            '*',
+            'http://localhost:8080',
         ],
 
         'allow_methods' => [
