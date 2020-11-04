@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 
 Route::post('/auth/login', 'API\Auth\LoginController');
 
-Route::middleware('auth:airlock')->group(function () {
+Route::middleware('auth:sanctum')->group(function () {
     Route::post('/auth/logout', 'API\Auth\LogoutController');
     Route::get('/users/{user}', 'API\UserController@show');
 });
