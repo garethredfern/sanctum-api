@@ -1,6 +1,12 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\API\Auth\LoginController;
+use App\Http\Controllers\API\Auth\LogoutController;
+
+use App\Http\Controllers\API\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +19,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::post('/auth/login', 'API\Auth\LoginController');
+Route::post('/auth/login', LoginController::class);
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::post('/auth/logout', 'API\Auth\LogoutController');
-    Route::get('/users/{user}', 'API\UserController@show');
+    Route::post('/auth/logout', LogoutController::class);
+    Route::get('/users/{user}', [UserController::class, 'show']);
 });

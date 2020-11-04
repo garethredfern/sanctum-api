@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\API\Auth;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
@@ -11,7 +11,6 @@ use Illuminate\Validation\ValidationException;
 class LoginController extends Controller
 {
     /**
-     * See: https://github.com/laravel/airlock#authenticating-mobile-applications.
      * @param Request $request
      * @return mixed
      * @throws ValidationException
@@ -37,4 +36,3 @@ class LoginController extends Controller
         return response()->json($data, 200);
     }
 }
-
